@@ -36,6 +36,18 @@ td = ta
 #A-C
 #A-D
 
+def gen_column(n):
+    for index in xrange(n):
+        column_set = simulate_columns_from_A()
+        for col in column_set:
+            yield co
+
+def sim_mat(out, seqlen):
+    for column in gen_column(seqlen):
+        out.write(column)
+        out.write('\n')
+
+sim_mat(sys.stdout, seqlen)
 
 fmt = '''
 #NEXUS
