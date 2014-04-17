@@ -12,23 +12,33 @@ import itertools
 s=[ states, states, states, states ]
 poss=list(itertools.product(*s))
 
-
-\[Lambda] = 0.5;
-\[Mu] = 1;
-ta = .01
-tb = 1
-ti = ta/100
-tc = tb
-td = ta
-
-
 # Tree:
-#   A         C
-#    \       /
-#     \     /
-#      \___/
-#     /    \
-#    B      D
+#   A           C
+#    \         /
+#     \       /
+#      \i___j/
+#      /     \
+#     B      D
+
+
+# Sequence length is length 
+seqlen = 10 # seqlen is length of observed sequence at tip a
+insrate = 0.5;
+delrate = 1;
+ta = 1 #long branch
+tb = .01 #short branch
+ti = ta/100
+tc = ta
+td = tb
+pinvar = 0.5
+
+
+#generator will 
+
+#for a base in 'a' simulate other tips - walk through the tree branch by branch
+
+#simulate realization of columns.
+
 
 #Expected site pattern probabilities.
 
@@ -57,6 +67,9 @@ def sim_mat(out, seqlen):
         out.write('\n')
 
 sim_mat(sys.stdout, seqlen)
+
+#generator that 
+
 
 fmt = '''
 #NEXUS
