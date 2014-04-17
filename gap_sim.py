@@ -23,12 +23,12 @@ td = ta
 
 
 # Tree:
-#  A          C
+#   A         C
 #    \       /
 #     \     /
 #      \___/
-#      /   \
-#     B     D
+#     /    \
+#    B      D
 
 #Expected site pattern probabilities.
 
@@ -37,3 +37,21 @@ td = ta
 #A-D
 
 
+fmt = '''
+#NEXUS
+begin taxa;
+ dimensions ntax = 4;
+ taxlabels A B C D ;
+end;
+
+begin distances;
+    Format triangle=upper;
+    matrix
+        A 0.0 {dab} {dac} {dad} 
+        B     0.0 {dbc} {dbd} 
+        C         0.0 {dcd}
+        D             0.0;
+
+end;
+'''
+.format(dab=dab, dac=dac, dad=dad, dbc=dbc, dbd=dbd, dcd=dcd)
