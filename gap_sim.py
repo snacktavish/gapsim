@@ -40,7 +40,16 @@ def gen_column(n):
     for index in xrange(n):
         column_set = simulate_columns_from_A()
         for col in column_set:
-            yield co
+            yield col
+            
+ins+n(ins+del))
+def simulate_columns_from_A():
+  if random.random( )
+
+#simulate changes on all branches from root 'a'
+def branch_sim(im,base,bl):
+
+
 
 def sim_mat(out, seqlen):
     for column in gen_column(seqlen):
