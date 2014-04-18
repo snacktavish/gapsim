@@ -101,7 +101,7 @@ def branch_sim(subseq, start, end, blen):
     indelrate = insrate+delrate
     eventrate = insrate+(n*indelrate)
     currpoint = 0.0
-    print("start", nondel)
+#    print("start", nondel)
     while True:
         wt = RNG.expovariate(eventrate)
         currpoint+=wt
