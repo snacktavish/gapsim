@@ -20,12 +20,6 @@ sys.stderr.write("Seed is {}\n".format(s))
 RNG.seed(s)
 
 
-poss_states = set()
-
-import itertools
-s=[ states, states, states, states ]
-poss=list(itertools.product(*s))
-
 # Tree:
 #   A           C
 #    \         /
@@ -37,7 +31,7 @@ poss=list(itertools.product(*s))
 
 # Sequence length is length 
 seqlen = int(sys.argv[1]) # seqlen is length of observed sequence at tip a
-insrate = .4 #E-10
+insrate = .3 #E-10
 delrate = .5 
 ta = 1.0 #long branch
 tb = .01 #short branch
@@ -46,7 +40,8 @@ tc = ta
 td = tb
 pinvar = 0.5
 one_minus_pinv = 1.0 - pinvar
-
+probzlen = (1 - (insrate/delrate))
+geomprobins = (insrate/delrate)
 epsilon = 1.0E-10
 
 subst = {
@@ -78,17 +73,26 @@ def gen_column(n):
         column_set = simulate_columns_from_A()
         for col in column_set:
             yield col
+
             
 def simulate_columns_from_A():
   if RNG.random() < pinvar:
      return [RNG.choice('AGCT') * 4]
-  subcol = [RNG.choice('AGCT') ]+['-']*5  #initial 
-  subseq = [subcol]
-  branch_sim(subseq, 0, 4, ta/one_minus_pinv)
-  branch_sim(subseq, 4, 1, tb/one_minus_pinv)
-  branch_sim(subseq, 4, 5, ti/one_minus_pinv)
-  branch_sim(subseq, 5, 2, tc/one_minus_pinv)
-  branch_sim(subseq, 5, 3, td/one_minus_pinv)
+    #initial 
+  subseq = []
+  u = RNG.random()
+  u -= probzlen
+  currprob = probzlen
+  while u > 0:
+    subcol = [RNG.choice('AGCT') ]+['-']*5
+    subseq.append(subcol)
+    currprob *= geomprobins
+    u -= currprob
+  subseq = branch_sim(subseq, 0, 4, ta/one_minus_pinv)
+  subseq = branch_sim(subseq, 4, 1, tb/one_minus_pinv)
+  subseq = branch_sim(subseq, 4, 5, ti/one_minus_pinv)
+  subseq = branch_sim(subseq, 5, 2, tc/one_minus_pinv)
+  subseq = branch_sim(subseq, 5, 3, td/one_minus_pinv)
   c = [''.join(lis[:4]) for lis in subseq]
   return c
 
@@ -152,11 +156,33 @@ def branch_sim(subseq, start, end, blen):
             anc = subseq[ci][end]
             desc = RNG.choice(subst[anc])
             subseq[ci][end] = desc
+    #remove columns with all gaps
+    allgap = ['-']*6
+    subseq = [ i for i in subseq if i != allgap ]
     return subseq
-        
+    
+
+states=('-','N')
+s = [states]*4
+counts = {''.join(stat):0 for stat in itertools.product(*s)}
+
+
+def gap_or_no(a):
+   if a in 'ATGC':
+      return('N')
+   elif a == '-':
+      return('-')
+   else:
+       return(a)
+
+def states_trans(col):
+   counts["".join([gap_or_no(i) for i in col])] += 1
+   
+
 def sim_mat(out, seqlen):
     n = 0
     for column in gen_column(seqlen):
+        states_trans(column)
         if n > 0:
             out.write('\n')
         out.write(column)
@@ -189,7 +215,8 @@ begin paup;
 end;
 '''.format(c=nc, m='\n'.join(numbered)))
 
-#generator that 
+for item in counts:
+    sys.stderr.write("Count of {it} was {count} in sequence of final length {c}\n".format(it=item,count=counts[item],c=nc))
 
 """
 fmt = '''
