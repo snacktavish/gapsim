@@ -33,8 +33,8 @@ RNG.seed(s)
 seqlen = int(sys.argv[1]) # seqlen is length of observed sequence at tip a
 insrate = .3 #E-10
 delrate = .5 
-ta = 1.0 #long branch
-tb = .01 #short branch
+ta = .05 #long branch
+tb = .05 #short branch
 ti = tb
 tc = ta
 td = tb
@@ -50,19 +50,6 @@ subst = {
    'C' : 'AGT',
    'T' : 'AGC'
 }
-#generator will 
-
-#for a base in 'a' simulate other tips - walk through the tree branch by branch
-
-#simulate realization of columns.
-
-
-#Expected site pattern probabilities.
-
-#calculate distance A-B
-#A-C
-#A-D
-
 
 ## Notes make debugging optional,
 ## Write some tests..
@@ -87,7 +74,8 @@ def simulate_columns_from_A():
     subcol = [RNG.choice('AGCT') ]+['-']*5
     subseq.append(subcol)
     currprob *= geomprobins
-    u -= currprob
+    u -= currprob 
+  #sys.stderr.write("root {}\n".format(len(subseq)))
   subseq = branch_sim(subseq, 0, 4, ta/one_minus_pinv)
   subseq = branch_sim(subseq, 4, 1, tb/one_minus_pinv)
   subseq = branch_sim(subseq, 4, 5, ti/one_minus_pinv)
@@ -102,7 +90,7 @@ def branch_sim(subseq, start, end, blen):
     nondel=[]
     for ite, subcol in enumerate(subseq):
        if subcol[start]!='-':
-           nondel.append(ite)
+            nondel.append(ite)
        subcol[end] = subcol[start]
     n = len(nondel)
     indelrate = insrate+delrate
