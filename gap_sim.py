@@ -31,14 +31,14 @@ RNG.seed(s)
 
 # Sequence length is length 
 seqlen = int(sys.argv[1]) # seqlen is length of observed sequence at tip a
-insrate = .3 #E-10
-delrate = .5 
-ta = .05 #long branch
-tb = .05 #short branch
+insrate = .5 #E-10
+delrate = 1. 
+ta = 0 #long branch
+tb = 0 #short branch
 ti = tb
 tc = ta
-td = tb
-pinvar = 0.5
+td = 4
+pinvar = 0
 one_minus_pinv = 1.0 - pinvar
 probzlen = (1 - (insrate/delrate))
 geomprobins = (insrate/delrate)
@@ -61,7 +61,7 @@ def gen_column(n):
         for col in column_set:
             yield col
 
-            
+
 def simulate_columns_from_A():
   if RNG.random() < pinvar:
      return [RNG.choice('AGCT') * 4]
@@ -75,7 +75,7 @@ def simulate_columns_from_A():
     subseq.append(subcol)
     currprob *= geomprobins
     u -= currprob 
-  #sys.stderr.write("root {}\n".format(len(subseq)))
+#  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
   subseq = branch_sim(subseq, 0, 4, ta/one_minus_pinv)
   subseq = branch_sim(subseq, 4, 1, tb/one_minus_pinv)
   subseq = branch_sim(subseq, 4, 5, ti/one_minus_pinv)
@@ -87,6 +87,11 @@ def simulate_columns_from_A():
 VERBOSE = False
 #simulate changes on all branches from root 'a'
 def branch_sim(subseq, start, end, blen):
+    tracking = False
+    if VERBOSE:
+      if (len(subseq)==1):
+        tracking = True
+        sys.stderr.write("tracking one base\n")
     nondel=[]
     for ite, subcol in enumerate(subseq):
        if subcol[start]!='-':
@@ -103,8 +108,8 @@ def branch_sim(subseq, start, end, blen):
         currpoint+=wt
         if currpoint >= blen:
               break
-        pimmlink = (epsilon+insrate)/eventrate        
-        pdel = (n*delrate)/eventrate
+        pimmlink = (epsilon+insrate)/eventrate
+        pdel = (len(nondel)*delrate)/eventrate
         u = RNG.random()
         if u < pimmlink:
             newcol=['-']*6
@@ -112,17 +117,19 @@ def branch_sim(subseq, start, end, blen):
             subseq.insert(0,newcol)
             nondel = [0] + [ite + 1 for ite in nondel]
             eventrate += indelrate
-            if VERBOSE:
-                print("immortal {}".format(eventrate),nondel)  
+            if tracking:
+                sys.stderr.write("u is {}, insertion at immortal link, {} bases\n".format(u, len(nondel)))
         else:
             ndi = RNG.randrange(0, len(nondel))
-            u -= pimmlink   
+            u -= pimmlink
+            if tracking:
+                sys.stderr.write("pdel is now {}\n".format(pdel))
             if u < pdel:
                ci = nondel.pop(ndi)
                subseq[ci][end]='-'
                eventrate -= indelrate
-               if VERBOSE:
-                    print("deletion {}".format(eventrate),nondel)  
+               if tracking:
+                  sys.stderr.write("u is {}, deletion, {} bases left\n".format(u, len(nondel)))
             else:
                 newcol=['-']*6
                 newcol[end]=RNG.choice('AGCT')
@@ -136,8 +143,8 @@ def branch_sim(subseq, start, end, blen):
                       newnondel.append(ite)
                 nondel = newnondel
                 eventrate += indelrate
-                if VERBOSE:
-                    print("insertion {}".format(eventrate),nondel)  
+                if tracking:
+                  sys.stderr.write("u is {}, insertion! now {} bases\n".format(u, len(nondel)))
     subprob = 0.75 - 0.75*math.exp((-4.0*blen)/3.0)
     for ci in nondel:
         if RNG.random() < subprob:
@@ -203,8 +210,16 @@ begin paup;
 end;
 '''.format(c=nc, m='\n'.join(numbered)))
 
-for item in counts:
+
+sortke = list(counts.keys())
+sortke.sort()
+for item in sortke:
     sys.stderr.write("Count of {it} was {count} in sequence of final length {c}\n".format(it=item,count=counts[item],c=nc))
+
+for ii, tip in enumerate(['A','B','C','D']):
+    tip_seq_len = sum([counts[key] for key in counts.keys() if key[ii]=='N']) - counts['NNNN']# removing invarioable sites
+    sys.stderr.write("lenth of (variable site) seq at tip {} is {}\n".format(tip, tip_seq_len))
+
 
 """
 fmt = '''
