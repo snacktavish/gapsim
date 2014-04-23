@@ -4,10 +4,10 @@ import itertools
 import math
 import sys
 import time
+import argparse
+
 # 4 taxon case
 # 2 states
-# 81 possible patterns
-states = ['-',0, 1]
 
 RNG=random.Random()
 import os
@@ -19,30 +19,58 @@ else:
 sys.stderr.write("Seed is {}\n".format(s))
 RNG.seed(s)
 
-
+sys.stderr.write('''
 # Tree:
 #   A           C
 #    \         /
 #     \       /
 #      \i___j/
-#      /     \
-#     B      D
+#      /     \ 
+#     B       D
+#
+''')
+
+parser = argparse.ArgumentParser(description='Process some arguments.')
+parser.add_argument('-l','--seqlen', help='average sequence length (if avg column indel = 1)', default = 100, type=int)
+parser.add_argument('-ins','--insrate', help='insertion rate', default = 0.5, type=float)
+parser.add_argument('-del','--delrate', help='deletion rate',  default = 1.0, type=float)
+parser.add_argument('-invar','--pinvar', help='proportion of invariant sites',  default = 0.5, type=float)
+parser.add_argument('-ta','--ta', help='branch length at a',  default = 1, type=float)
+parser.add_argument('-tb','--tb', help='branch length at b',  default = 0.1, type=float)
+parser.add_argument('-tc','--tc', help='branch length at a',  default = 1, type=float)
+parser.add_argument('-td','--td', help='branch length at b',  default = 0.1, type=float)
+parser.add_argument('-ti','--ti', help='internal branch length',  default = 0.1, type=float)
+
+args = vars(parser.parse_args())
 
 
 # Sequence length is length 
-seqlen = int(sys.argv[1]) # seqlen is length of observed sequence at tip a
-insrate = .5 #E-10
-delrate = 1. 
-ta = 0 #long branch
-tb = 0 #short branch
-ti = tb
-tc = ta
-td = 4
-pinvar = 0
+seqlen = args['seqlen']
+insrate = args['insrate']
+delrate = args['delrate'] 
+pinvar = args['pinvar']
+ta = args['ta']
+tb = args['tb']
+ti = args['ti']
+tc = args['tc']
+td = args['td']
 one_minus_pinv = 1.0 - pinvar
 probzlen = (1 - (insrate/delrate))
 geomprobins = (insrate/delrate)
 epsilon = 1.0E-10
+
+
+sys.stderr.write("Avg seqlen should be {} (if avg indel rate is 1)\n".format(seqlen))
+sys.stderr.write("Insertion rate is {}\n".format(insrate))
+sys.stderr.write("Deletion rate is {}\n".format(delrate))
+sys.stderr.write("Pinvar is {}\n".format(pinvar))
+sys.stderr.write("Branch A length is {} \n".format(ta))
+sys.stderr.write("Branch B length is {}\n".format(tb))
+sys.stderr.write("Branch C length is {} \n".format(tc))
+sys.stderr.write("Branch D length is {}\n".format(td))
+sys.stderr.write("Internal branch length is {}\n".format(ti))
+
+
 
 subst = {
    'A' : 'GCT',
