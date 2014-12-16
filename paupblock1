@@ -1,0 +1,2 @@
+execute sim.nex;set criterion=distance;
+dset dist=jc pinv=0.013579;[!pairwise corrected dists]showdist;[!end pairwise corrected dists]

@@ -1,0 +1,11 @@
+begin paup;
+    execute sim.nex;
+    set crite = like;
+    lset nst = 1 basefreq = eq pinv = est;
+    lscore 1;
+    describe / brl ;
+    alltrees ;
+    showtree ;
+    describetrees;
+    matrixrep brlens=yes file=tmp.nex replace;
+end;

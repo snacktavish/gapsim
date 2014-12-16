@@ -1,0 +1,6 @@
+	execute tmp_no_e.nex;
+	assume wtset=brlens;
+    hs;
+    [!patristic on ML tree]
+    describetrees 1/ patristic=yes;
+    [!end patristic on ML tree]
