@@ -27,7 +27,7 @@ sys.stderr.write('''
 #      \i___j/
 #      /     \ 
 #     B       D
-#
+
 ''')
 
 parser = argparse.ArgumentParser(description='Process some arguments.')
@@ -35,10 +35,10 @@ parser.add_argument('-l','--seqlen', help='average sequence length (if avg colum
 parser.add_argument('-ins','--insrate', help='insertion rate', default = 0.5, type=float)
 parser.add_argument('-del','--delrate', help='deletion rate',  default = 1.0, type=float)
 parser.add_argument('-invar','--pinvar', help='proportion of invariant sites',  default = 0.5, type=float)
-parser.add_argument('-ta','--ta', help='branch length at a',  default = 1, type=float)
-parser.add_argument('-tb','--tb', help='branch length at b',  default = 0.1, type=float)
-parser.add_argument('-tc','--tc', help='branch length at a',  default = 1, type=float)
-parser.add_argument('-td','--td', help='branch length at b',  default = 0.1, type=float)
+parser.add_argument('-ta','--ta', help='branch length at a',  default = 0.6, type=float)
+parser.add_argument('-tb','--tb', help='branch length at b',  default = 0.01, type=float)
+parser.add_argument('-tc','--tc', help='branch length at a',  default = 0.6, type=float)
+parser.add_argument('-td','--td', help='branch length at b',  default = 0.01, type=float)
 parser.add_argument('-ti','--ti', help='internal branch length',  default = 0.1, type=float)
 
 args = vars(parser.parse_args())
@@ -228,13 +228,15 @@ end;
 begin trees;
 tree true = [&U] (A,B,(C,D));
 end;
-begin paup;
+begin _paup;
     set crite = like;
     lset nst = 1 basefreq = eq pinv = est;
     lscore 1;
     describe / brl ;
     alltrees ;
     showtree ;
+    describetrees;
+    matrixrep brlens=yes file=tmp.nex replace;
 end;
 '''.format(c=nc, m='\n'.join(numbered)))
 
@@ -245,8 +247,8 @@ for item in sortke:
     sys.stderr.write("Count of {it} was {count} in sequence of final length {c}\n".format(it=item,count=counts[item],c=nc))
 
 for ii, tip in enumerate(['A','B','C','D']):
-    tip_seq_len = sum([counts[key] for key in counts.keys() if key[ii]=='N']) - counts['NNNN']# removing invarioable sites
-    sys.stderr.write("lenth of (variable site) seq at tip {} is {}\n".format(tip, tip_seq_len))
+    tip_seq_len = sum([counts[key] for key in counts.keys() if key[ii]=='N'])# removing invarioable sites
+    sys.stderr.write("lenth of non-gap seq at tip {} is {}\n".format(tip, tip_seq_len))
 
 
 """
