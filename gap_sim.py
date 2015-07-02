@@ -32,12 +32,12 @@ sys.stderr.write('''
 #
 #
 # Tree:
-#   0  1        3
-#    \/        /
-#    5\       /
-#      \ 6 _7/
+#   0  1     3  4
+#    \/       \/
+#    6\       /9
+#      \ 7 _8/
 #      /     \ 
-#     2       4
+#     2       5
 #
 ''')
 
@@ -94,26 +94,28 @@ def gen_column(n):
 
 def simulate_columns_from_A():
   if RNG.random() < pinvar:
-     return [RNG.choice('AGCT') * 5]
+     return [RNG.choice('AGCT') * 6]
     #initial 
   subseq = []
   u = RNG.random()
   u -= probzlen
   currprob = probzlen
   while u > 0:
-    subcol = [RNG.choice('AGCT') ]+['-']*7
+    subcol = [RNG.choice('AGCT') ]+['-']*9
     subseq.append(subcol)
     currprob *= geomprobins
     u -= currprob 
 #  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
-  subseq = branch_sim(subseq, 0, 5, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 5, 1, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 5, 6, lb/one_minus_pinv)
-  subseq = branch_sim(subseq, 6, 2, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 6, 7, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 7, 3, lb/one_minus_pinv)
-  subseq = branch_sim(subseq, 7, 4, sb/one_minus_pinv)
-  c = [''.join(lis[:5]) for lis in subseq]
+  subseq = branch_sim(subseq, 0, 6, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 6, 1, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 6, 7, lb/one_minus_pinv)
+  subseq = branch_sim(subseq, 7, 2, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 7, 8, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 8, 5, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 8, 9, lb/one_minus_pinv)
+  subseq = branch_sim(subseq, 9, 3, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 9, 4, sb/one_minus_pinv)
+  c = [''.join(lis[:6]) for lis in subseq]
   return c
 
 VERBOSE = False
@@ -144,7 +146,7 @@ def branch_sim(subseq, start, end, blen):
         pdel = (len(nondel)*delrate)/eventrate
         u = RNG.random()
         if u < pimmlink:
-            newcol=['-']*8
+            newcol=['-']*10
             newcol[end]=RNG.choice('AGCT')
             subseq.insert(0,newcol)
             nondel = [0] + [ite + 1 for ite in nondel]
@@ -163,7 +165,7 @@ def branch_sim(subseq, start, end, blen):
                if tracking:
                   sys.stderr.write("u is {}, deletion, {} bases left\n".format(u, len(nondel)))
             else:
-                newcol=['-']*8
+                newcol=['-']*10
                 newcol[end]=RNG.choice('AGCT')
                 ci = nondel[ndi]
                 subseq.insert(ci+1,newcol)
@@ -184,13 +186,13 @@ def branch_sim(subseq, start, end, blen):
             desc = RNG.choice(subst[anc])
             subseq[ci][end] = desc
     #remove columns with all gaps
-    allgap = ['-']*7
+    allgap = ['-']*10
     subseq = [ i for i in subseq if i != allgap ]
     return subseq
     
 
 states=('-','N')
-s = [states]*5
+s = [states]*6
 counts = {''.join(stat):0 for stat in itertools.product(*s)}
 
 
@@ -222,27 +224,23 @@ numbered = ['c_{n} {i}'.format(n=n, i=i) for n, i in enumerate(buffer.getvalue()
 out = sys.stdout
 out.write('''#NEXUS
 begin data ;
-    dimensions ntax = 5 nchar = {c} ;
-    taxlabels A A1 B C D ;
+    dimensions ntax = 6 nchar = {c} ;
+    taxlabels A A1 B C C1 D ;
     format transpose datatype=dna gap = '-';
 matrix 
 {m}
 ;
 end;
 begin trees;
-tree true = [&U] ((A, A1), B,(C,D));
+tree true = [&U] ((A, A1), B,((C,C1),D));
 end;
 begin _paup;
-    set crite = like;
-    lset nst = 1 basefreq = eq pinv = est;
-    lscore 1;
-    describe / brl ;
-    alltrees ;
-    showtree ;
-    describetrees;
-    matrixrep brlens=yes file=tmp.nex replace;
+    set criterion=distance;
+    dset dist=jc pinv={pin};
+    hs;
+    showtrees;
 end;
-'''.format(c=nc, m='\n'.join(numbered)))
+'''.format(c=nc, m='\n'.join(numbered),pin=pinvar))
 
 
 sortke = list(counts.keys())
