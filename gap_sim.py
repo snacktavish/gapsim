@@ -94,7 +94,6 @@ def gen_column(n):
 
 def simulate_columns_from_A():
   if RNG.random() < pinvar:
-     print("invar")
      return [RNG.choice('AGCT') * 5]
     #initial 
   subseq = []
@@ -107,7 +106,6 @@ def simulate_columns_from_A():
     currprob *= geomprobins
     u -= currprob 
 #  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
-  print(subseq)
   subseq = branch_sim(subseq, 0, 5, sb/one_minus_pinv)
   subseq = branch_sim(subseq, 5, 1, sb/one_minus_pinv)
   subseq = branch_sim(subseq, 5, 6, lb/one_minus_pinv)
