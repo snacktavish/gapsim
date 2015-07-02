@@ -21,13 +21,24 @@ RNG.seed(s)
 
 sys.stderr.write('''
 # Tree:
-#   A           C
-#    \         /
+#   A  A1       C
+#    \/        /
 #     \       /
 #      \i___j/
 #      /     \ 
 #     B       D
-
+#
+#
+#
+#
+# Tree:
+#   0  1        3
+#    \/        /
+#    5\       /
+#      \ 6 _7/
+#      /     \ 
+#     2       4
+#
 ''')
 
 parser = argparse.ArgumentParser(description='Process some arguments.')
@@ -35,11 +46,8 @@ parser.add_argument('-l','--seqlen', help='average sequence length (if avg colum
 parser.add_argument('-ins','--insrate', help='insertion rate', default = 0.5, type=float)
 parser.add_argument('-del','--delrate', help='deletion rate',  default = 1.0, type=float)
 parser.add_argument('-invar','--pinvar', help='proportion of invariant sites',  default = 0.5, type=float)
-parser.add_argument('-ta','--ta', help='branch length at a',  default = 0.6, type=float)
-parser.add_argument('-tb','--tb', help='branch length at b',  default = 0.01, type=float)
-parser.add_argument('-tc','--tc', help='branch length at a',  default = 0.6, type=float)
-parser.add_argument('-td','--td', help='branch length at b',  default = 0.01, type=float)
-parser.add_argument('-ti','--ti', help='internal branch length',  default = 0.1, type=float)
+parser.add_argument('-lb','--lb', help='branch length at a',  default = 0.6, type=float)
+parser.add_argument('-sb','--sb', help='branch length at b',  default = 0.01, type=float)
 
 args = vars(parser.parse_args())
 
@@ -49,11 +57,8 @@ seqlen = args['seqlen']
 insrate = args['insrate']
 delrate = args['delrate'] 
 pinvar = args['pinvar']
-ta = args['ta']
-tb = args['tb']
-ti = args['ti']
-tc = args['tc']
-td = args['td']
+sb = args['sb']
+lb = args['lb']
 one_minus_pinv = 1.0 - pinvar
 probzlen = (1 - (insrate/delrate))
 geomprobins = (insrate/delrate)
@@ -64,11 +69,8 @@ sys.stderr.write("Avg seqlen should be {} (if avg indel rate is 1)\n".format(seq
 sys.stderr.write("Insertion rate is {}\n".format(insrate))
 sys.stderr.write("Deletion rate is {}\n".format(delrate))
 sys.stderr.write("Pinvar is {}\n".format(pinvar))
-sys.stderr.write("Branch A length is {} \n".format(ta))
-sys.stderr.write("Branch B length is {}\n".format(tb))
-sys.stderr.write("Branch C length is {} \n".format(tc))
-sys.stderr.write("Branch D length is {}\n".format(td))
-sys.stderr.write("Internal branch length is {}\n".format(ti))
+sys.stderr.write("Short branch length is {} \n".format(sb))
+sys.stderr.write("Long branchlength is {}\n".format(lb))
 
 
 
@@ -92,24 +94,28 @@ def gen_column(n):
 
 def simulate_columns_from_A():
   if RNG.random() < pinvar:
-     return [RNG.choice('AGCT') * 4]
+     print("invar")
+     return [RNG.choice('AGCT') * 5]
     #initial 
   subseq = []
   u = RNG.random()
   u -= probzlen
   currprob = probzlen
   while u > 0:
-    subcol = [RNG.choice('AGCT') ]+['-']*5
+    subcol = [RNG.choice('AGCT') ]+['-']*7
     subseq.append(subcol)
     currprob *= geomprobins
     u -= currprob 
 #  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
-  subseq = branch_sim(subseq, 0, 4, ta/one_minus_pinv)
-  subseq = branch_sim(subseq, 4, 1, tb/one_minus_pinv)
-  subseq = branch_sim(subseq, 4, 5, ti/one_minus_pinv)
-  subseq = branch_sim(subseq, 5, 2, tc/one_minus_pinv)
-  subseq = branch_sim(subseq, 5, 3, td/one_minus_pinv)
-  c = [''.join(lis[:4]) for lis in subseq]
+  print(subseq)
+  subseq = branch_sim(subseq, 0, 5, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 5, 1, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 5, 6, lb/one_minus_pinv)
+  subseq = branch_sim(subseq, 6, 2, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 6, 7, sb/one_minus_pinv)
+  subseq = branch_sim(subseq, 7, 3, lb/one_minus_pinv)
+  subseq = branch_sim(subseq, 7, 4, sb/one_minus_pinv)
+  c = [''.join(lis[:5]) for lis in subseq]
   return c
 
 VERBOSE = False
@@ -140,7 +146,7 @@ def branch_sim(subseq, start, end, blen):
         pdel = (len(nondel)*delrate)/eventrate
         u = RNG.random()
         if u < pimmlink:
-            newcol=['-']*6
+            newcol=['-']*8
             newcol[end]=RNG.choice('AGCT')
             subseq.insert(0,newcol)
             nondel = [0] + [ite + 1 for ite in nondel]
@@ -159,7 +165,7 @@ def branch_sim(subseq, start, end, blen):
                if tracking:
                   sys.stderr.write("u is {}, deletion, {} bases left\n".format(u, len(nondel)))
             else:
-                newcol=['-']*6
+                newcol=['-']*8
                 newcol[end]=RNG.choice('AGCT')
                 ci = nondel[ndi]
                 subseq.insert(ci+1,newcol)
@@ -180,13 +186,13 @@ def branch_sim(subseq, start, end, blen):
             desc = RNG.choice(subst[anc])
             subseq[ci][end] = desc
     #remove columns with all gaps
-    allgap = ['-']*6
+    allgap = ['-']*7
     subseq = [ i for i in subseq if i != allgap ]
     return subseq
     
 
 states=('-','N')
-s = [states]*4
+s = [states]*5
 counts = {''.join(stat):0 for stat in itertools.product(*s)}
 
 
@@ -218,15 +224,15 @@ numbered = ['c_{n} {i}'.format(n=n, i=i) for n, i in enumerate(buffer.getvalue()
 out = sys.stdout
 out.write('''#NEXUS
 begin data ;
-    dimensions ntax = 4 nchar = {c} ;
-    taxlabels A B C D ;
+    dimensions ntax = 5 nchar = {c} ;
+    taxlabels A A1 B C D ;
     format transpose datatype=dna gap = '-';
 matrix 
 {m}
 ;
 end;
 begin trees;
-tree true = [&U] (A,B,(C,D));
+tree true = [&U] ((A, A1), B,(C,D));
 end;
 begin _paup;
     set crite = like;
@@ -251,21 +257,3 @@ for ii, tip in enumerate(['A','B','C','D']):
     sys.stderr.write("lenth of non-gap seq at tip {} is {}\n".format(tip, tip_seq_len))
 
 
-"""
-fmt = '''
-#NEXUS
-begin taxa;
- dimensions ntax = 4;
- taxlabels A B C D ;
-end;
-
-begin distances;
-    Format triangle=upper;
-    matrix
-        A 0.0 {dab} {dac} {dad} 
-        B     0.0 {dbc} {dbd} 
-        C         0.0 {dcd}
-        D             0.0;
-
-end;
-'''.format(dab=dab, dac=dac, dad=dad, dbc=dbc, dbd=dbd, dcd=dcd)"""
