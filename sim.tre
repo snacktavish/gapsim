@@ -1,0 +1,5 @@
+#NEXUS
+begin trees;
+    tree true = [&U] ((A, A1), B,((C,C1),D));
+    tree lba = [&U] ((A, A1), (C,C1), (B,D));
+end;

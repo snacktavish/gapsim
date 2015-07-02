@@ -1,0 +1,13 @@
+#NEXUS
+begin paup;
+    log start file=sim.log ;
+    execute sim.nex ;
+    export format = nexus file = nontransposed.nex ; 
+    set criterion=distance;
+    dset dist=jc pinv=0.5 objective=lsfit;
+    alltrees;
+    savetree file = est.tre ;
+    gettrees file = ../sim.tre mode = 7 ;
+    treedist ;
+    log stop ;
+end;

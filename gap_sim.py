@@ -91,7 +91,7 @@ def gen_column(n):
         for col in column_set:
             yield col
 
-
+evolve_along_tree = True
 def simulate_columns_from_A():
   if RNG.random() < pinvar:
      return [RNG.choice('AGCT') * 6]
@@ -105,16 +105,18 @@ def simulate_columns_from_A():
     subseq.append(subcol)
     currprob *= geomprobins
     u -= currprob 
-#  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
-  subseq = branch_sim(subseq, 0, 6, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 6, 1, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 6, 7, lb/one_minus_pinv)
-  subseq = branch_sim(subseq, 7, 2, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 7, 8, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 8, 5, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 8, 9, lb/one_minus_pinv)
-  subseq = branch_sim(subseq, 9, 3, sb/one_minus_pinv)
-  subseq = branch_sim(subseq, 9, 4, sb/one_minus_pinv)
+
+  if evolve_along_tree:
+    #  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
+    subseq = branch_sim(subseq, 0, 6, sb/one_minus_pinv)
+    subseq = branch_sim(subseq, 6, 1, sb/one_minus_pinv)
+    subseq = branch_sim(subseq, 6, 7, lb/one_minus_pinv)
+    subseq = branch_sim(subseq, 7, 2, sb/one_minus_pinv)
+    subseq = branch_sim(subseq, 7, 8, sb/one_minus_pinv)
+    subseq = branch_sim(subseq, 8, 5, sb/one_minus_pinv)
+    subseq = branch_sim(subseq, 8, 9, lb/one_minus_pinv)
+    subseq = branch_sim(subseq, 9, 3, sb/one_minus_pinv)
+    subseq = branch_sim(subseq, 9, 4, sb/one_minus_pinv)
   c = [''.join(lis[:6]) for lis in subseq]
   return c
 
@@ -231,16 +233,7 @@ matrix
 {m}
 ;
 end;
-begin trees;
-tree true = [&U] ((A, A1), B,((C,C1),D));
-end;
-begin _paup;
-    set criterion=distance;
-    dset dist=jc pinv={pin};
-    hs;
-    showtrees;
-end;
-'''.format(c=nc, m='\n'.join(numbered),pin=pinvar))
+'''.format(c=nc, m='\n'.join(numbered)))
 
 
 sortke = list(counts.keys())
