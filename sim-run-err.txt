@@ -1,0 +1,1213 @@
++ n=100
++ i=1
++ true
++ dirn=rep1
++ mkdir rep1
+mkdir: cannot create directory ‘rep1’: File exists
++ cd rep1
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 1
++ i=2
++ test 2 -gt 100
++ true
++ dirn=rep2
++ mkdir rep2
+mkdir: cannot create directory ‘rep2’: File exists
++ cd rep2
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 2
++ i=3
++ test 3 -gt 100
++ true
++ dirn=rep3
++ mkdir rep3
+mkdir: cannot create directory ‘rep3’: File exists
++ cd rep3
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 3
++ i=4
++ test 4 -gt 100
++ true
++ dirn=rep4
++ mkdir rep4
+mkdir: cannot create directory ‘rep4’: File exists
++ cd rep4
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 4
++ i=5
++ test 5 -gt 100
++ true
++ dirn=rep5
++ mkdir rep5
+mkdir: cannot create directory ‘rep5’: File exists
++ cd rep5
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 5
++ i=6
++ test 6 -gt 100
++ true
++ dirn=rep6
++ mkdir rep6
+mkdir: cannot create directory ‘rep6’: File exists
++ cd rep6
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 6
++ i=7
++ test 7 -gt 100
++ true
++ dirn=rep7
++ mkdir rep7
+mkdir: cannot create directory ‘rep7’: File exists
++ cd rep7
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 7
++ i=8
++ test 8 -gt 100
++ true
++ dirn=rep8
++ mkdir rep8
+mkdir: cannot create directory ‘rep8’: File exists
++ cd rep8
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 8
++ i=9
++ test 9 -gt 100
++ true
++ dirn=rep9
++ mkdir rep9
+mkdir: cannot create directory ‘rep9’: File exists
++ cd rep9
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 9
++ i=10
++ test 10 -gt 100
++ true
++ dirn=rep10
++ mkdir rep10
+mkdir: cannot create directory ‘rep10’: File exists
++ cd rep10
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 10
++ i=11
++ test 11 -gt 100
++ true
++ dirn=rep11
++ mkdir rep11
++ cd rep11
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 11
++ i=12
++ test 12 -gt 100
++ true
++ dirn=rep12
++ mkdir rep12
++ cd rep12
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 12
++ i=13
++ test 13 -gt 100
++ true
++ dirn=rep13
++ mkdir rep13
++ cd rep13
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 13
++ i=14
++ test 14 -gt 100
++ true
++ dirn=rep14
++ mkdir rep14
++ cd rep14
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 14
++ i=15
++ test 15 -gt 100
++ true
++ dirn=rep15
++ mkdir rep15
++ cd rep15
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 15
++ i=16
++ test 16 -gt 100
++ true
++ dirn=rep16
++ mkdir rep16
++ cd rep16
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 16
++ i=17
++ test 17 -gt 100
++ true
++ dirn=rep17
++ mkdir rep17
++ cd rep17
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 17
++ i=18
++ test 18 -gt 100
++ true
++ dirn=rep18
++ mkdir rep18
++ cd rep18
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 18
++ i=19
++ test 19 -gt 100
++ true
++ dirn=rep19
++ mkdir rep19
++ cd rep19
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 19
++ i=20
++ test 20 -gt 100
++ true
++ dirn=rep20
++ mkdir rep20
++ cd rep20
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 20
++ i=21
++ test 21 -gt 100
++ true
++ dirn=rep21
++ mkdir rep21
++ cd rep21
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 21
++ i=22
++ test 22 -gt 100
++ true
++ dirn=rep22
++ mkdir rep22
++ cd rep22
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 22
++ i=23
++ test 23 -gt 100
++ true
++ dirn=rep23
++ mkdir rep23
++ cd rep23
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 23
++ i=24
++ test 24 -gt 100
++ true
++ dirn=rep24
++ mkdir rep24
++ cd rep24
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 24
++ i=25
++ test 25 -gt 100
++ true
++ dirn=rep25
++ mkdir rep25
++ cd rep25
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 25
++ i=26
++ test 26 -gt 100
++ true
++ dirn=rep26
++ mkdir rep26
++ cd rep26
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 26
++ i=27
++ test 27 -gt 100
++ true
++ dirn=rep27
++ mkdir rep27
++ cd rep27
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 27
++ i=28
++ test 28 -gt 100
++ true
++ dirn=rep28
++ mkdir rep28
++ cd rep28
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 28
++ i=29
++ test 29 -gt 100
++ true
++ dirn=rep29
++ mkdir rep29
++ cd rep29
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 29
++ i=30
++ test 30 -gt 100
++ true
++ dirn=rep30
++ mkdir rep30
++ cd rep30
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 30
++ i=31
++ test 31 -gt 100
++ true
++ dirn=rep31
++ mkdir rep31
++ cd rep31
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 31
++ i=32
++ test 32 -gt 100
++ true
++ dirn=rep32
++ mkdir rep32
++ cd rep32
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 32
++ i=33
++ test 33 -gt 100
++ true
++ dirn=rep33
++ mkdir rep33
++ cd rep33
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 33
++ i=34
++ test 34 -gt 100
++ true
++ dirn=rep34
++ mkdir rep34
++ cd rep34
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 34
++ i=35
++ test 35 -gt 100
++ true
++ dirn=rep35
++ mkdir rep35
++ cd rep35
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 35
++ i=36
++ test 36 -gt 100
++ true
++ dirn=rep36
++ mkdir rep36
++ cd rep36
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 36
++ i=37
++ test 37 -gt 100
++ true
++ dirn=rep37
++ mkdir rep37
++ cd rep37
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 37
++ i=38
++ test 38 -gt 100
++ true
++ dirn=rep38
++ mkdir rep38
++ cd rep38
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 38
++ i=39
++ test 39 -gt 100
++ true
++ dirn=rep39
++ mkdir rep39
++ cd rep39
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 39
++ i=40
++ test 40 -gt 100
++ true
++ dirn=rep40
++ mkdir rep40
++ cd rep40
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 40
++ i=41
++ test 41 -gt 100
++ true
++ dirn=rep41
++ mkdir rep41
++ cd rep41
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 41
++ i=42
++ test 42 -gt 100
++ true
++ dirn=rep42
++ mkdir rep42
++ cd rep42
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 42
++ i=43
++ test 43 -gt 100
++ true
++ dirn=rep43
++ mkdir rep43
++ cd rep43
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 43
++ i=44
++ test 44 -gt 100
++ true
++ dirn=rep44
++ mkdir rep44
++ cd rep44
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 44
++ i=45
++ test 45 -gt 100
++ true
++ dirn=rep45
++ mkdir rep45
++ cd rep45
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 45
++ i=46
++ test 46 -gt 100
++ true
++ dirn=rep46
++ mkdir rep46
++ cd rep46
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 46
++ i=47
++ test 47 -gt 100
++ true
++ dirn=rep47
++ mkdir rep47
++ cd rep47
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 47
++ i=48
++ test 48 -gt 100
++ true
++ dirn=rep48
++ mkdir rep48
++ cd rep48
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 48
++ i=49
++ test 49 -gt 100
++ true
++ dirn=rep49
++ mkdir rep49
++ cd rep49
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 49
++ i=50
++ test 50 -gt 100
++ true
++ dirn=rep50
++ mkdir rep50
++ cd rep50
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 50
++ i=51
++ test 51 -gt 100
++ true
++ dirn=rep51
++ mkdir rep51
++ cd rep51
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 51
++ i=52
++ test 52 -gt 100
++ true
++ dirn=rep52
++ mkdir rep52
++ cd rep52
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 52
++ i=53
++ test 53 -gt 100
++ true
++ dirn=rep53
++ mkdir rep53
++ cd rep53
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 53
++ i=54
++ test 54 -gt 100
++ true
++ dirn=rep54
++ mkdir rep54
++ cd rep54
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 54
++ i=55
++ test 55 -gt 100
++ true
++ dirn=rep55
++ mkdir rep55
++ cd rep55
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 55
++ i=56
++ test 56 -gt 100
++ true
++ dirn=rep56
++ mkdir rep56
++ cd rep56
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 56
++ i=57
++ test 57 -gt 100
++ true
++ dirn=rep57
++ mkdir rep57
++ cd rep57
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 57
++ i=58
++ test 58 -gt 100
++ true
++ dirn=rep58
++ mkdir rep58
++ cd rep58
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 58
++ i=59
++ test 59 -gt 100
++ true
++ dirn=rep59
++ mkdir rep59
++ cd rep59
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 59
++ i=60
++ test 60 -gt 100
++ true
++ dirn=rep60
++ mkdir rep60
++ cd rep60
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 60
++ i=61
++ test 61 -gt 100
++ true
++ dirn=rep61
++ mkdir rep61
++ cd rep61
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 61
++ i=62
++ test 62 -gt 100
++ true
++ dirn=rep62
++ mkdir rep62
++ cd rep62
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 62
++ i=63
++ test 63 -gt 100
++ true
++ dirn=rep63
++ mkdir rep63
++ cd rep63
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 63
++ i=64
++ test 64 -gt 100
++ true
++ dirn=rep64
++ mkdir rep64
++ cd rep64
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 64
++ i=65
++ test 65 -gt 100
++ true
++ dirn=rep65
++ mkdir rep65
++ cd rep65
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 65
++ i=66
++ test 66 -gt 100
++ true
++ dirn=rep66
++ mkdir rep66
++ cd rep66
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 66
++ i=67
++ test 67 -gt 100
++ true
++ dirn=rep67
++ mkdir rep67
++ cd rep67
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 67
++ i=68
++ test 68 -gt 100
++ true
++ dirn=rep68
++ mkdir rep68
++ cd rep68
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 68
++ i=69
++ test 69 -gt 100
++ true
++ dirn=rep69
++ mkdir rep69
++ cd rep69
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 69
++ i=70
++ test 70 -gt 100
++ true
++ dirn=rep70
++ mkdir rep70
++ cd rep70
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 70
++ i=71
++ test 71 -gt 100
++ true
++ dirn=rep71
++ mkdir rep71
++ cd rep71
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 71
++ i=72
++ test 72 -gt 100
++ true
++ dirn=rep72
++ mkdir rep72
++ cd rep72
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 72
++ i=73
++ test 73 -gt 100
++ true
++ dirn=rep73
++ mkdir rep73
++ cd rep73
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 73
++ i=74
++ test 74 -gt 100
++ true
++ dirn=rep74
++ mkdir rep74
++ cd rep74
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 74
++ i=75
++ test 75 -gt 100
++ true
++ dirn=rep75
++ mkdir rep75
++ cd rep75
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 75
++ i=76
++ test 76 -gt 100
++ true
++ dirn=rep76
++ mkdir rep76
++ cd rep76
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 76
++ i=77
++ test 77 -gt 100
++ true
++ dirn=rep77
++ mkdir rep77
++ cd rep77
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 77
++ i=78
++ test 78 -gt 100
++ true
++ dirn=rep78
++ mkdir rep78
++ cd rep78
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 78
++ i=79
++ test 79 -gt 100
++ true
++ dirn=rep79
++ mkdir rep79
++ cd rep79
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 79
++ i=80
++ test 80 -gt 100
++ true
++ dirn=rep80
++ mkdir rep80
++ cd rep80
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 80
++ i=81
++ test 81 -gt 100
++ true
++ dirn=rep81
++ mkdir rep81
++ cd rep81
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 81
++ i=82
++ test 82 -gt 100
++ true
++ dirn=rep82
++ mkdir rep82
++ cd rep82
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 82
++ i=83
++ test 83 -gt 100
++ true
++ dirn=rep83
++ mkdir rep83
++ cd rep83
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 83
++ i=84
++ test 84 -gt 100
++ true
++ dirn=rep84
++ mkdir rep84
++ cd rep84
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 84
++ i=85
++ test 85 -gt 100
++ true
++ dirn=rep85
++ mkdir rep85
++ cd rep85
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 85
++ i=86
++ test 86 -gt 100
++ true
++ dirn=rep86
++ mkdir rep86
++ cd rep86
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 86
++ i=87
++ test 87 -gt 100
++ true
++ dirn=rep87
++ mkdir rep87
++ cd rep87
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 87
++ i=88
++ test 88 -gt 100
++ true
++ dirn=rep88
++ mkdir rep88
++ cd rep88
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 88
++ i=89
++ test 89 -gt 100
++ true
++ dirn=rep89
++ mkdir rep89
++ cd rep89
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 89
++ i=90
++ test 90 -gt 100
++ true
++ dirn=rep90
++ mkdir rep90
++ cd rep90
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 90
++ i=91
++ test 91 -gt 100
++ true
++ dirn=rep91
++ mkdir rep91
++ cd rep91
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 91
++ i=92
++ test 92 -gt 100
++ true
++ dirn=rep92
++ mkdir rep92
++ cd rep92
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 92
++ i=93
++ test 93 -gt 100
++ true
++ dirn=rep93
++ mkdir rep93
++ cd rep93
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 93
++ i=94
++ test 94 -gt 100
++ true
++ dirn=rep94
++ mkdir rep94
++ cd rep94
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 94
++ i=95
++ test 95 -gt 100
++ true
++ dirn=rep95
++ mkdir rep95
++ cd rep95
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 95
++ i=96
++ test 96 -gt 100
++ true
++ dirn=rep96
++ mkdir rep96
++ cd rep96
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 96
++ i=97
++ test 97 -gt 100
++ true
++ dirn=rep97
++ mkdir rep97
++ cd rep97
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 97
++ i=98
++ test 98 -gt 100
++ true
++ dirn=rep98
++ mkdir rep98
++ cd rep98
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 98
++ i=99
++ test 99 -gt 100
++ true
++ dirn=rep99
++ mkdir rep99
++ cd rep99
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 99
++ i=100
++ test 100 -gt 100
++ true
++ dirn=rep100
++ mkdir rep100
++ cd rep100
++ python ../gap_sim.py --sb=0.025 --lb=0.4 -l 100000
++ paup -n ../master.nex
++ paired_invariants_cull.py --p-inv=0.5 nontransposed.nex
++ paup -n ../masterculled.nex
++ cd ..
++ expr 1 + 100
++ i=101
++ test 101 -gt 100
++ exit
