@@ -21,8 +21,8 @@ RNG.seed(s)
 
 sys.stderr.write('''
 # Tree:
-#   A  A1       C
-#    \/        /
+#   A  A1    C  C1
+#    \/I1     \/I4
 #     \       /
 #      \i___j/
 #      /     \ 
@@ -45,8 +45,8 @@ parser = argparse.ArgumentParser(description='Process some arguments.')
 parser.add_argument('-l','--seqlen', help='average sequence length (if avg column indel = 1)', default = 100, type=int)
 parser.add_argument('-ins','--insrate', help='insertion rate', default = 0.5, type=float)
 parser.add_argument('-del','--delrate', help='deletion rate',  default = 1.0, type=float)
-parser.add_argument('-invar','--pinvar', help='proportion of invariant sites',  default = 0.5, type=float)
-parser.add_argument('-lb','--lb', help='branch length at a',  default = 0.6, type=float)
+parser.add_argument('-invar','--pinvar', help='proportion of invariant block',  default = 0.5, type=float)
+parser.add_argument('-lb','--lb', help='length of path from A to MRCA of A,A1|B,C,C1,D',  default = 0.6, type=float)
 parser.add_argument('-sb','--sb', help='branch length at b',  default = 0.01, type=float)
 
 args = vars(parser.parse_args())
@@ -108,14 +108,24 @@ def simulate_columns_from_A():
 
   if evolve_along_tree:
     #  sys.stderr.write("A starting length is {}\n".format(len(subseq)))
+    rem_lb = lb - sb
+    # A to internal I1
     subseq = branch_sim(subseq, 0, 6, sb/one_minus_pinv)
+    # I1 to A1
     subseq = branch_sim(subseq, 6, 1, sb/one_minus_pinv)
-    subseq = branch_sim(subseq, 6, 7, lb/one_minus_pinv)
+    # I1 to i
+    subseq = branch_sim(subseq, 6, 7, rem_lb/one_minus_pinv)
+    # i to B
     subseq = branch_sim(subseq, 7, 2, sb/one_minus_pinv)
+    # i to j
     subseq = branch_sim(subseq, 7, 8, sb/one_minus_pinv)
+    # j to D
     subseq = branch_sim(subseq, 8, 5, sb/one_minus_pinv)
-    subseq = branch_sim(subseq, 8, 9, lb/one_minus_pinv)
+    # j to I2
+    subseq = branch_sim(subseq, 8, 9, rem_lb/one_minus_pinv)
+    # i4 to C
     subseq = branch_sim(subseq, 9, 3, sb/one_minus_pinv)
+    # i4 to C
     subseq = branch_sim(subseq, 9, 4, sb/one_minus_pinv)
   c = [''.join(lis[:6]) for lis in subseq]
   return c
